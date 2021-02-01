@@ -1,24 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/a695a3856f.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="assets/style.css" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <title>Weather Dashboard</title>
-  </head>
 
-  <body>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="assets/script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard</title>
+  <!--Bootstrap CSS CDN-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!--Fontawesome CDN-->
+  <script src="https://kit.fontawesome.com/a695a3856f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/style.css" />
+  <!--Custom Favicon-->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+
+<body>
+  <!--Header-->
+  <div class="topnav">
+    <h1>Weather Dashboard</h1>
+  </div>
+
+  </nav>
+  <!--Search for city-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 bg-light">
+        <h4 class="pt-2">Search for a City:</h4>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="city-search" aria-label="City Search"
+            aria-describedby="search-button">
+          <div class="input-group-append">
+            <button class=" btn bg-primary text-light" id="city-search-button"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+        <!--List of searched cities will appear here-->
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-group-flush" id="city-list">
+              <li class="list-group-item">Random City</li>
+              <li class="list-group-item">Random City</li>
+              <li class="list-group-item">Random City</li>
+              <li class="list-group-item">Random City</li>
+              <li class="list-group-item">Random City</li>
+            </ul>
+          </div>
+        </div>
+        <!--City history clear button-->
+        <button class="btn btn-primary mt-3" type="button" id="clear-history">Clear</button>
+      </div>
+
+      <!-- Weather information for current city -->
+      <div class="col-md-6 mt-3">
+        <div class="row ml-2 border border-dark rounded">
+          <div class="col-md" id="current-weather">
+            <h3 class="city-name mb-2 mt-2 bolder" id="current-city"></h3>
+            <p class="current" id="temperature">Temperature:</p>
+            <p class="current" id="humidity">Humidity:</p>
+            <p class="current" id="wind-speed">Wind Speed:</p>
+            <p class="current" id=uv-index>UV Index:</p>
+          </div>
+        </div>
+
+        <!--5 Day forecast -->
+        <div class="row" id="forecast">
+          <h3>5-Day Forecast:</h3>
+          <div class="col bg-primary m-md-1 forecast text-white rounded">
+            <p>Temp:</p>
+            <p>Humidity:</p>
+          </div>
+          <div class="col bg-primary m-md-1 forecast text-white rounded">
+            <p>Temp:</p>
+            <p>Humidity:</p>
+          </div>
+          <div class="col bg-primary m-md-1 forecast text-white rounded">
+            <p>Temp:</p>
+            <p>Humidity:</p>
+          </div>
+          <div class="col bg-primary m-md-1 forecast text-white rounded">
+            <p>Temp:</p>
+            <p>Humidity:</p>
+          </div>
+          <div class="col bg-primary m-md-1 forecast text-white rounded">
+            <p>Temp:</p>
+            <p>Humidity:</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+  <!--footer-->
+  <div class="footer">
+    <p>Juan Sanchez</p>
+  </div>
+
+  <!--jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!--Bootstrap Javascript CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+  <!--javascript file-->
+  <script src="assets/script.js"></script>
+</body>
+
 </html>
