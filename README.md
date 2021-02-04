@@ -1,9 +1,12 @@
 # 06 Server-Side APIs: Weather Dashboard
 
+Weather dashboard that runs in the browser using the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities.
+
 ## Mock-Up
 
 The following image shows the web application's appearance and functionality:
 
+![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions](./Assets/06weatherdashboard.png)
 
 ## Application URLs
 
