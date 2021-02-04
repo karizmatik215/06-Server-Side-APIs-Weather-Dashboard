@@ -6,7 +6,7 @@ Weather dashboard that runs in the browser using the [OpenWeather API](https://o
 
 The following image shows the web application's appearance and functionality:
 
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions](./Assets/06weatherdashboard.png)
+![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions](assets/06weatherdashboard.png)
 
 ## Application URLs
 
