@@ -3,15 +3,25 @@ var currentDate = (now.format("MM/DD/YYYY"));
 var city = "";
 var citySearch = $("#city-search");
 var citySearchButton = $("#city-search-button");
-var clearButton = $("#clear-history")
 
+//Clears localstorage
+function deleteItems() {
+  localStorage.clear();
+}
+
+//Displays weather after clicking search button
 citySearchButton.on("click", displayWeather);
 
+//displays weather after running currentWeather function
 function displayWeather(event) {
   event.preventDefault();
   if (citySearch.val().trim() !== "") {
     city = citySearch.val().trim();
     currentWeather(city);
+
+    //localstorage for searched cities
+    var cityList = document.getElementById("city-list");
+    cityList.textContent = "";
 
     var searchedCities = localStorage.getItem("visitedCities");
     if (searchedCities === null) {
@@ -24,18 +34,18 @@ function displayWeather(event) {
     var visitedCityNames = JSON.stringify(searchedCities);
     localStorage.setItem("visitedCities", visitedCityNames);
 
-    var searchHistory = document.getElementById("city-list");
-    var list = document.createElement("li");
-    list.setAttribute("class", "list-group-item");
-    searchHistory.appendChild(list);
-    /*
-        var groupItem = document.getElementById("list-group-item");
-        groupItem.textContent = citySearch; */
+    //creates list items from cities saved in localstorage
+    for (let i = 0; i < searchedCities.length; i++) {
+      var list = document.createElement("li");
+      list.setAttribute("class", "list-group-item");
+      list.setAttribute("id", "city-link");
+      list.textContent = searchedCities[i];
+      cityList.appendChild(list);
+    }
   }
 }
 
-
-
+//gets current weather for searched city and dsiaplys selected information in current weather card
 function currentWeather(city) {
   const apiKey = "ee41023e27cbe7d2955c0ddebe7d0f31";
   var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + apiKey + "&units=imperial";
@@ -60,6 +70,7 @@ function currentWeather(city) {
     var wind = document.getElementById("wind-speed");
     wind.textContent = "Wind Speed: " + weatherData.wind.speed + " MPH";
 
+    //gets UV data, sets icon color based on number retrieved
     var latValue = weatherData.coord.lat;
     var lonValue = weatherData.coord.lon;
     var queryUv = "https://api.openweathermap.org/data/2.5/uvi?";
@@ -83,6 +94,8 @@ function currentWeather(city) {
         uvIndex.setAttribute("class", "badge bg-danger");
       }
     });
+
+    //gets forecast data and converts it to the next 5 days. creates weather cards for the next 5 days
     $.ajax({
       url: "https://api.openweathermap.org/data/2.5/onecall?units=imperial&" + "lat=" + latValue + "&lon=" + lonValue + "&exclude=current,minutely,hourly,alerts" + "&appid=" + apiKey,
       method: "GET",
